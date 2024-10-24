@@ -420,7 +420,7 @@ KA_evaluate_kaggle <- function( pinputexps )
 # Este es el  Workflow Baseline
 # Aqui vamos a usar 202107 que tiene clase
 
-wf_exp_base <- function( pnombrewf )
+wf_expcol1 <- function( pnombrewf )
 {
   param_local <- exp_wf_init( pnombrewf ) # linea workflow inicial fija
 
@@ -457,5 +457,5 @@ wf_exp_base <- function( pnombrewf )
 # Aqui comienza el programa
 
 # llamo al workflow con future = 202107
-wf_exp_base()
+wf_expcol1()
 
