@@ -267,18 +267,18 @@ TS_strategy_base8 <- function( pinputexps )
   param_local$meta$script <- "/src/wf-etapas/z2101_TS_training_strategy.r"
 
 
-  param_local$future <- c(202107)
+  param_local$future <- c(202106)
 
   param_local$final_train$undersampling <- 1.0
   param_local$final_train$clase_minoritaria <- c( "BAJA+1", "BAJA+2")
-  param_local$final_train$training <- c(202105, 202104, 202103,
-    202102, 202101, 202012)
+  param_local$final_train$training <- c(202104, 202103,
+    202102, 202101)
 
 
-  param_local$train$training <- c(202103, 202102,
-    202101, 202012, 202011, 202010)
-  param_local$train$validation <- c(202104)
-  param_local$train$testing <- c(202105)
+  param_local$train$training <- c(202102,
+    202101, 202012, 202011, 202010, 202009)
+  param_local$train$validation <- c(202103)
+  param_local$train$testing <- c(202104)
 
   # Atencion  0.2  de  undersampling de la clase mayoritaria,  los CONTINUA
   # 1.0 significa NO undersampling
@@ -445,9 +445,11 @@ wf_expcolbase_f202106 <- function( pnombrewf )
   ht <- HT_tuning_base( bo_iteraciones = 40 )  # iteraciones inteligentes
 
   # Etapas finales
-  fm <- FM_final_models_lightgbm( c(ht, ts8), ranks=c(1), qsemillas=5 )
+  fm <- FM_final_models_lightgbm( c(ht, ts8), ranks=c(1), qsemillas=20 )
   SC_scoring( c(fm, ts8) )
-  KA_evaluate_kaggle()  # genera archivos para Kaggle
+  EV_evaluate_conclase_gan() #Para generar los gráficos de ganancia
+
+  #KA_evaluate_kaggle()  # Dado que futuro es mes sin clase no genero archivos para Kaggle
 
   return( exp_wf_end() ) # linea workflow final fija
 }
