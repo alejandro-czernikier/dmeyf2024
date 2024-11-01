@@ -272,11 +272,11 @@ TS_strategy_base6 <- function( pinputexps )
   param_local$final_train$undersampling <- 1.0
   param_local$final_train$clase_minoritaria <- c( "BAJA+1", "BAJA+2")
   param_local$final_train$training <- c(202104, 202103, 202102,
-    202101, 202012, 202011, 202010,202009)
+    202101,202012,202011 )
 
 
   param_local$train$training <- c(202102, 202101, 202012,
-    202111, 202010, 202009,202008,202007)
+    202011,202010,202009)
   param_local$train$validation <- c(202103)
   param_local$train$testing <- c(202104)
 
@@ -424,7 +424,7 @@ EV_evaluate_conclase_gan <- function( pinputexps )
 # Este es el  Workflow Baseline
 # Que predice 202106 donde SI hay clase completa
 
-wf_junio_expcol_1 <- function( pnombrewf )
+exp_01_jun <- function( pnombrewf )
 {
   param_local <- exp_wf_init( pnombrewf ) # linea workflow inicial fija
 
@@ -435,7 +435,7 @@ wf_junio_expcol_1 <- function( pnombrewf )
   CA_catastrophe_base( metodo="MachineLearning")
   FEintra_manual_base()
   DR_drifting_base(metodo="rank_cero_fijo")
-  FEhist_base()
+  #FEhist_base()
 
   FErf_attributes_base( arbolitos= 20,
     hojas_por_arbol= 16,
@@ -461,4 +461,4 @@ wf_junio_expcol_1 <- function( pnombrewf )
 # Aqui comienza el programa
 
 # llamo al workflow con future = 202106
-wf_junio_expcol_1()
+exp_01_jun()
