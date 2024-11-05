@@ -272,11 +272,11 @@ TS_strategy_base6 <- function( pinputexps )
   param_local$final_train$undersampling <- 1.0
   param_local$final_train$clase_minoritaria <- c( "BAJA+1", "BAJA+2")
   param_local$final_train$training <- c(202104, 202103, 202102,
-    202101,202012,202011, 202010, 202008, 202007, 202006, 202005, 202004)
+    202101, 202012, 202011, 202010, 202009, 202008, 202007, 202006, 202005)
 
 
   param_local$train$training <- c(202102, 202101, 202012,
-    202011,202010,202009, 202008, 202007, 202006, 202005, 20204, 202003)
+    202011, 202010, 202009, 202008, 202007, 202006, 202005, 202004, 202003)
   param_local$train$validation <- c(202103)
   param_local$train$testing <- c(202104)
 
@@ -424,7 +424,7 @@ EV_evaluate_conclase_gan <- function( pinputexps )
 # Este es el  Workflow Baseline
 # Que predice 202106 donde SI hay clase completa
 
-exp_04_jun <- function( pnombrewf )
+exp_04_corr_jun <- function( pnombrewf )
 {
   param_local <- exp_wf_init( pnombrewf ) # linea workflow inicial fija
 
@@ -461,4 +461,4 @@ exp_04_jun <- function( pnombrewf )
 # Aqui comienza el programa
 
 # llamo al workflow con future = 202106
-exp_04_jun()
+exp_04_corr_jun()
