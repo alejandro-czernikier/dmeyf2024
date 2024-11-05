@@ -60,23 +60,15 @@ fwrite( dataset_crudo,
 dataset2<-fread("./competencia_02.csv")
 
 
+#Para chequear cantidades de cada clase
+#unique(dataset2$clase_ternaria)
+#unique(dataset2$clase_ternaria[dataset2$foto_mes == 202109])
+#View(dataset2[dataset2$foto_mes == 202107, c("clase_ternaria")])
+#View(table(dataset2$clase_ternaria[dataset2$foto_mes == 202107]))
+#View(table(dataset2$clase_ternaria)
 
-unique(dataset2$clase_ternaria)
-unique(dataset2$clase_ternaria[dataset2$foto_mes == 202109])
-View(dataset2[dataset2$foto_mes == 202107, c("clase_ternaria")])
-View(table(dataset2$clase_ternaria[dataset2$foto_mes == 202107]))
-View(table(dataset2$clase_ternaria)
-     
-dataset2[, lapply(.SD, function(x) sum(is.na(x)))]
-dataset2[, sum(is.na(.SD))]
+#dataset2[, lapply(.SD, function(x) sum(is.na(x)))]
+#dataset2[, sum(is.na(.SD))]
 
-
-
-getwd()
-competencia_1 <- fread("../competencia_01_R.csv" )
-
-
-#Que cántidad de BAJAs hay por categoria
-dataset2
 
 
