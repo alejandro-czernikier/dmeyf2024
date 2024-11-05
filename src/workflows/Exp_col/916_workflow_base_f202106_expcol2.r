@@ -272,11 +272,11 @@ TS_strategy_base6 <- function( pinputexps )
   param_local$final_train$undersampling <- 1.0
   param_local$final_train$clase_minoritaria <- c( "BAJA+1", "BAJA+2")
   param_local$final_train$training <- c(202104, 202103, 202102,
-    202101,202012,202011, 202010, 202008)
+    202101, 202012, 202011, 202010, 202009)
 
 
   param_local$train$training <- c(202102, 202101, 202012,
-    202011,202010,202009, 202008, 202007)
+    202011, 202010, 202009, 202008, 202007)
   param_local$train$validation <- c(202103)
   param_local$train$testing <- c(202104)
 
