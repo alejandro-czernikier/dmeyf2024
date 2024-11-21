@@ -427,7 +427,7 @@ KA_evaluate_kaggle <- function( pinputexps )
 # Este es el  Workflow Baseline
 # Que predice 202108 donde NO conozco la clase
 
-wf_agosto_1_sinmarzoabril <- function( pnombrewf )
+wf_agosto_1_sinmarzoabril_5modelos <- function( pnombrewf )
 {
   param_local <- exp_wf_init( pnombrewf ) # linea workflow inicial fija
 
@@ -453,7 +453,7 @@ wf_agosto_1_sinmarzoabril <- function( pnombrewf )
   ht <- HT_tuning_base( bo_iteraciones = 40 )  # iteraciones inteligentes
 
   # Etapas finales
-  fm <- FM_final_models_lightgbm( c(ht, ts8), ranks=c(1), qsemillas=20 )
+  fm <- FM_final_models_lightgbm( c(ht, ts8), ranks=c(1), qsemillas=5)
   SC_scoring( c(fm, ts8) )
   KA_evaluate_kaggle()  # genera archivos para Kaggle
 
@@ -464,4 +464,4 @@ wf_agosto_1_sinmarzoabril <- function( pnombrewf )
 # Aqui comienza el programa
 
 # llamo al workflow con future = 202108
-wf_agosto_1_sinmarzoabril()
+wf_agosto_1_sinmarzoabril_5modelos()
