@@ -19,7 +19,7 @@ envg$EXPENV$repo_dir <- "~/dmeyf2024/"
 envg$EXPENV$datasets_dir <- "~/buckets/b1/datasets/"
 envg$EXPENV$messenger <- "~/install/zulip_enviar.sh"
 
-envg$EXPENV$semilla_primigenia <- 102191
+envg$EXPENV$semilla_primigenia <- 146383
 
 # leo el unico parametro del script
 args <- commandArgs(trailingOnly=TRUE)
@@ -141,7 +141,7 @@ FEhist_base <- function( pinputexps)
   param_local$lag3 <- FALSE # no me engraso con los lags de orden 3
 
   # no me engraso las manos con las tendencias
-  param_local$Tendencias1$run <- TRUE  # FALSE, no corre nada de lo que sigue
+  param_local$Tendencias1$run <- FALSE  # FALSE, no corre nada de lo que sigue
   param_local$Tendencias1$ventana <- 6
   param_local$Tendencias1$tendencia <- TRUE
   param_local$Tendencias1$minimo <- FALSE
@@ -268,11 +268,18 @@ TS_strategy_base8 <- function( pinputexps )
   param_local$final_train$undersampling <- 1.0
   param_local$final_train$clase_minoritaria <- c( "BAJA+1", "BAJA+2")
   param_local$final_train$training <- c(202106, 202105, 202104,
-    202103, 202102, 202101)
-
+    202103, 202102, 202101, 202012, 202011, 202010,
+    202009, 202008, 202007, 202006, 202005, 202004,
+    202003, 202002, 202001, 201912, 201911, 201911,                            
+    201910, 201909, 201908, 201907, 201906, 201905, 
+    201904, 201903)
 
   param_local$train$training <- c(202104, 202103, 202102,
-    202101, 202012, 202011)
+    202101, 202012, 202011, 202010, 202009, 202008,
+    202007, 202006, 202005, 202004, 202003, 202002,
+    201912, 201911, 201911, 201910, 202001, 201909,
+    201907, 201906, 201905, 201904, 201908, 201903,
+    201902, 201901)
   param_local$train$validation <- c(202105)
   param_local$train$testing <- c(202106)
 
@@ -288,52 +295,52 @@ TS_strategy_base8 <- function( pinputexps )
 # Atencion, el undersampling es de 0.02
 #  tanto para entrenamineto como para  Final train$clase01_valor1
 
-TS_strategy_base8 <- function( pinputexps )
-{
-  if( -1 == (param_local <- exp_init())$resultado ) return( 0 )# linea fija
+#TS_strategy_base8 <- function( pinputexps )
+#{
+#  if( -1 == (param_local <- exp_init())$resultado ) return( 0 )# linea fija
 
-  param_local$meta$script <- "/src/wf-etapas/z2101_TS_training_strategy.r"
+#  param_local$meta$script <- "/src/wf-etapas/z2101_TS_training_strategy.r"
 
-  param_local$future <- c(202108)
+#  param_local$future <- c(202108)
 
-  param_local$final_train$undersampling <- 0.02
-  param_local$final_train$clase_minoritaria <- c( "BAJA+1", "BAJA+2")
-  param_local$final_train$training <- c(
-    202106, 202105, 202104, 202103, 202102, 202101, 
-    202012, 202011, 202010, 202009, 202008, 202007, 
+#  param_local$final_train$undersampling <- 0.02
+#  param_local$final_train$clase_minoritaria <- c( "BAJA+1", "BAJA+2")
+#  param_local$final_train$training <- c(
+#   202106, 202105, 202104, 202103, 202102, 202101, 
+#    202012, 202011, 202010, 202009, 202008, 202007, 
     # 202006  Excluyo por variables rotas
-    202005, 202004, 202003, 202002, 202001,
-    201912, 201911,
+#    202005, 202004, 202003, 202002, 202001,
+#    201912, 201911,
     # 201910 Excluyo por variables rotas
-    201909, 201908, 201907, 201906,
+#    201909, 201908, 201907, 201906,
     # 201905  Excluyo por variables rotas
-    201904, 201903
-  )
+#    201904, 201903
+#  )
 
 
-  param_local$train$testing <- c(202106)
-  param_local$train$validation <- c(202105)
+#  param_local$train$testing <- c(202106)
+#  param_local$train$validation <- c(202105)
 
-  param_local$train$training <- c(
-    202104, 202103, 202102, 202101, 
-    202012, 202011, 202010, 202009, 202008, 202007, 
+#  param_local$train$training <- c(
+#    202104, 202103, 202102, 202101, 
+#    202012, 202011, 202010, 202009, 202008, 202007, 
     # 202006  Excluyo por variables rotas
-    202005, 202004, 202003, 202002, 202001,
-    201912, 201911,
+#    202005, 202004, 202003, 202002, 202001,
+#    201912, 201911,
     # 201910 Excluyo por variables rotas
-    201909, 201908, 201907, 201906,
+#    201909, 201908, 201907, 201906,
     # 201905  Excluyo por variables rotas
-    201904, 201903
-  )
+#    201904, 201903
+#  )
 
 
   # Atencion  0.2  de  undersampling de la clase mayoritaria,  los CONTINUA
   # 1.0 significa NO undersampling
-  param_local$train$undersampling <- 0.02
-  param_local$train$clase_minoritaria <- c( "BAJA+1", "BAJA+2")
+#  param_local$train$undersampling <- 0.02
+#  param_local$train$clase_minoritaria <- c( "BAJA+1", "BAJA+2")
 
-  return( exp_correr_script( param_local ) ) # linea fija
-}
+#  return( exp_correr_script( param_local ) ) # linea fija
+#}
 #------------------------------------------------------------------------------
 # Hyperparamteter Tuning Baseline
 #  donde la Bayuesian Optimization solo considera 4 hiperparámetros
@@ -476,7 +483,7 @@ KA_evaluate_kaggle_semillerio <- function( pinputexps )
 # Que predice 202107 donde conozco la clase
 # y ya genera graficos
 
-wf_SEMI_ago_orden227 <- function( pnombrewf )
+wf_SEMI_ago_orden227_1 <- function( pnombrewf )
 {
   param_local <- exp_wf_init( pnombrewf ) # linea fija
 
@@ -517,5 +524,5 @@ wf_SEMI_ago_orden227 <- function( pnombrewf )
 # Aqui comienza el programa
 
 # llamo al workflow con future = 202108
-wf_SEMI_ago_orden227()
+wf_SEMI_ago_orden227_1()
 
