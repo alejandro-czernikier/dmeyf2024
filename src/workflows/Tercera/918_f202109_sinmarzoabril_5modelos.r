@@ -425,14 +425,14 @@ KA_evaluate_kaggle <- function( pinputexps )
 # A partir de ahora comienza la seccion de Workflows Completos
 #------------------------------------------------------------------------------
 # Este es el  Workflow Baseline
-# Que predice 202108 donde NO conozco la clase
+# Que predice 202109 donde NO conozco la clase
 
 wf_septiembre_1_sinmarzoabril_5modelos <- function( pnombrewf )
 {
   param_local <- exp_wf_init( pnombrewf ) # linea workflow inicial fija
 
-  # Etapa especificacion dataset de la Segunda Competencia Kaggle
-  DT_incorporar_dataset( "~/buckets/b1/datasets/competencia_02.csv.gz")
+  # Etapa especificacion dataset de la Tercera Competencia Kaggle
+  DT_incorporar_dataset( "~/buckets/b1/datasets/competencia_03.csv.gz")
 
   # Etapas preprocesamiento
   CA_catastrophe_base( metodo="MachineLearning")
@@ -463,5 +463,5 @@ wf_septiembre_1_sinmarzoabril_5modelos <- function( pnombrewf )
 #------------------------------------------------------------------------------
 # Aqui comienza el programa
 
-# llamo al workflow con future = 202108
+# llamo al workflow con future = 202109
 wf_septiembre_1_sinmarzoabril_5modelos()
