@@ -281,7 +281,6 @@ TS_strategy_base8 <- function( pinputexps )
     201905, 201904, 201903)
     
 
-
   param_local$train$training <- c(
     202104, 202103, 202102, 202101, 202012,
     202011, 202010, 202009, 202008,
