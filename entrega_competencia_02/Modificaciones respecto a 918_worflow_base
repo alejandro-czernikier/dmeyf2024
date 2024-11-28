@@ -1,0 +1,6 @@
+Modificaciones respecto a 918_worflow_base
+
+Semillia primigenia: 146383
+Lags 1 y 2: TRUE
+Meses de entrenamiento: Todos menos 202003 y 202004 por pandemia (Experimento colaborativo)
+qsemillas final model= 5
