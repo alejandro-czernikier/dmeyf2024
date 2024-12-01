@@ -407,14 +407,14 @@ KA_evaluate_kaggle <- function( pinputexps )
 {
   if( -1 == (param_local <- exp_init())$resultado ) return( 0 )# linea fija
 
-  param_local$meta$script <- "/src/wf-etapas/z2601_KA_evaluate_kaggle.r"
+  param_local$meta$script <- "/src/wf-etapas/2601_KA_evaluate_kaggle_para_tercera.r"
 
   param_local$semilla <- NULL  # no usa semilla, es deterministico
 
   param_local$isems_submit <- 1:20 # misterioso parametro, no preguntar
 
-  param_local$envios_desde <-   9000L
-  param_local$envios_hasta <-  13000L
+  param_local$envios_desde <-   7000L
+  param_local$envios_hasta <-  12000L
   param_local$envios_salto <-   500L
   param_local$competition <- "dm-ey-f-2024-tercera"
 
