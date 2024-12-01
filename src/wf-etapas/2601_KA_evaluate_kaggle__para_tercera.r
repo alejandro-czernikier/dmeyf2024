@@ -1,5 +1,5 @@
 #!/usr/bin/env Rscript
-cat( "ETAPA  z2601_KA_evaluate_kaggle.r  INIT\n")
+cat( "ETAPA  2601_KA_evaluate_kaggle_para_tercera.r  INIT\n")
 
 # Workflow  KA_evaluate_kaggle
 
@@ -285,4 +285,4 @@ GrabarOutput()
 #  archivos tiene a los files que debo verificar existen para no abortar
 
 action_finalizar( archivos = c("tb_ganancias.txt")) 
-cat( "ETAPA  z2601_KA_evaluate_kaggle.r  END\n")
+cat( "ETAPA  2601_KA_evaluate_kaggle_para_tercera.r  END\n")
