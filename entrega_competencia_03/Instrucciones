@@ -1,0 +1,3 @@
+1. Calcular clase_ternaria con clase_ternaria_3.r
+2. Agregar 2601_KA_evaluate_kaggle_para_tercera.r en ./wf-etapas
+3. Correr 903_run_workflow.r que llama a 918_f202109_sinmarzoabril_5modelos.r
